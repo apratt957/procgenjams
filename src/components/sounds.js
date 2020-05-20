@@ -28,8 +28,16 @@ const Sounds = () => {
       song.makeSong()
     }
   }
+
   return (
-    <div style={{ display: "flex" }}>
+    <div
+      style={{
+        display: "grid",
+        gap: "1rem",
+        gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+        margin: "15px 10px 15px 100px",
+      }}
+    >
       {songList.map(song => (
         <SongCard
           key={song.name}

@@ -194,4 +194,17 @@ const song2 = {
   },
 }
 
-export const songs = [song1, song2]
+export const songs = [
+  song1,
+  song2,
+  song1,
+  song2,
+  song1,
+  song2,
+  song1,
+  song2,
+  song1,
+  song2,
+  song1,
+  song2,
+]
