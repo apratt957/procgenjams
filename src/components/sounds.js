@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Tone from "tone"
 import { songs } from "../songs"
+import SongCard from "../components/songCard"
 
 const Sounds = () => {
   let [songList, setSongList] = useState(songs)
@@ -27,21 +28,15 @@ const Sounds = () => {
       song.makeSong()
     }
   }
-  return songList.map(song => {
-    if (currentSong === song.name) {
-      return (
-        <button key={song.name} onClick={stopSong}>
-          Stop
-        </button>
-      )
-    } else {
-      return (
-        <button key={song.name} onClick={() => playSong(song)}>
-          {song.name}
-        </button>
-      )
-    }
-  })
+  return songList.map(song => (
+    <SongCard
+      key={song.name}
+      song={song}
+      playSong={playSong}
+      stopSong={stopSong}
+      currentSong={currentSong}
+    />
+  ))
 }
 
 export default Sounds
