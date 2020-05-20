@@ -1,9 +1,11 @@
 import Tone from "tone"
+import { unmute } from "./utils/unmute"
 
 const song1 = {
   name: "Slow Song",
   makeSong: () => {
     Tone.context = new AudioContext()
+    unmute(Tone.context)
     function makeSynth() {
       let envelope = {
         attack: 0.01,
@@ -101,6 +103,7 @@ const song2 = {
   name: "Scary Song",
   makeSong: () => {
     Tone.context = new AudioContext()
+    unmute(Tone.context)
     function makeSynth() {
       let envelope = {
         attack: 0.01,
