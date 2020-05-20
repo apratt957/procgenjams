@@ -2,7 +2,7 @@ import Tone from "tone"
 import { unmute } from "./utils/unmute"
 
 const song1 = {
-  name: "Slow Song",
+  name: "Open Airlock",
   makeSong: () => {
     Tone.context = new AudioContext()
     unmute(Tone.context)
@@ -100,7 +100,7 @@ const song1 = {
 }
 
 const song2 = {
-  name: "Scary Song",
+  name: "Literally one note lmao",
   makeSong: () => {
     Tone.context = new AudioContext()
     unmute(Tone.context)
@@ -197,17 +197,4 @@ const song2 = {
   },
 }
 
-export const songs = [
-  song1,
-  song2,
-  song1,
-  song2,
-  song1,
-  song2,
-  song1,
-  song2,
-  song1,
-  song2,
-  song1,
-  song2,
-]
+export const songs = [song1, song2]
