@@ -28,15 +28,19 @@ const Sounds = () => {
       song.makeSong()
     }
   }
-  return songList.map(song => (
-    <SongCard
-      key={song.name}
-      song={song}
-      playSong={playSong}
-      stopSong={stopSong}
-      currentSong={currentSong}
-    />
-  ))
+  return (
+    <div style={{ display: "flex" }}>
+      {songList.map(song => (
+        <SongCard
+          key={song.name}
+          song={song}
+          playSong={playSong}
+          stopSong={stopSong}
+          currentSong={currentSong}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default Sounds

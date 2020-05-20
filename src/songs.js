@@ -94,11 +94,6 @@ const song1 = {
       rightSynth.triggerAttackRelease(makeRandomNote(notes), "0:2", "+23:2")
     }, "26m").start()
     Tone.Transport.start()
-    // setTimeout(() => {
-    //   Tone.Transport.stop()
-    //   Tone.Transport.cancel()
-    //   Tone.context.close()
-    // }, 20000)
   },
 }
 
