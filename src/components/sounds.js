@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Tone from "tone"
 import { songs } from "../songs"
-
-import Layout from "../components/layout"
 
 const Sounds = () => {
   let [songList, setSongList] = useState(songs)
@@ -29,17 +27,21 @@ const Sounds = () => {
       song.makeSong()
     }
   }
-  return (
-    <Layout>
-      {songList.map(song => {
-        if (currentSong === song.name) {
-          return <button onClick={stopSong}>Stop</button>
-        } else {
-          return <button onClick={() => playSong(song)}>{song.name}</button>
-        }
-      })}
-    </Layout>
-  )
+  return songList.map(song => {
+    if (currentSong === song.name) {
+      return (
+        <button key={song.name} onClick={stopSong}>
+          Stop
+        </button>
+      )
+    } else {
+      return (
+        <button key={song.name} onClick={() => playSong(song)}>
+          {song.name}
+        </button>
+      )
+    }
+  })
 }
 
 export default Sounds
