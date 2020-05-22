@@ -1,4 +1,3 @@
-"use strict"
 /**
  * @file unmute.ts
  * @author Spencer Evans evans.spencer@gmail.com
@@ -69,7 +68,7 @@ export function unmute(context) {
   var tagUnlockingEnabled = false
   var tagPendingChange = false
   function contextStateCheck(tryResuming) {
-    if (context.state == "running") {
+    if (context.state === "running") {
       // No need to watch for unlocking events while running
       toggleContextUnlocking(false)
       // Check if our state matches
@@ -77,7 +76,7 @@ export function unmute(context) {
         // We want to be suspended, we can suspend at any time
         context.suspend().then(context_promiseHandler, context_promiseHandler)
       }
-    } else if (context.state != "closed") {
+    } else if (context.state !== "closed") {
       // Interrupted or suspended, check if our state matches
       if (!suspendAudio) {
         // We want to be running
@@ -205,11 +204,11 @@ export function unmute(context) {
   /**
    * Called when the page becomes inactive.
    */
-  function pageDeactivated() {
-    suspendAudio = true
-    contextStateCheck(true) // context first to be sure it stops before the tag
-    if (tag) tagStateCheck(true)
-  }
+  // function pageDeactivated() {
+  //   suspendAudio = true
+  //   contextStateCheck(true) // context first to be sure it stops before the tag
+  //   if (tag) tagStateCheck(true)
+  // }
   /**
    * Updates page active state.
    */
@@ -226,7 +225,7 @@ export function unmute(context) {
    */
   function doc_visChange() {
     if (pageVisibilityAPI) {
-      if (document[pageVisibilityAPI.hidden] == isPageActive) {
+      if (document[pageVisibilityAPI.hidden] === isPageActive) {
         isPageVisible = !document[pageVisibilityAPI.hidden]
         pageStateCheck()
       }
