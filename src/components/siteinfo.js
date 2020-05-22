@@ -1,13 +1,29 @@
 import React from "react"
 import { Link } from "gatsby"
-import Tone from "tone"
 import styled from "styled-components"
+import reduxStore from "../state/createStore"
 
-const Navlink = styled.div`
+const ListItem = styled.div`
   writing-mode: vertical-rl;
   text-orientation: upright;
   margin-bottom: 2rem;
 `
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+  &:hover,
+  &:focus {
+    color: #ff8080;
+  }
+`
+
+const active = {
+  textDecoration: "none",
+  color: "red",
+}
 
 const SiteInfo = () => {
   return (
@@ -22,12 +38,16 @@ const SiteInfo = () => {
       }}
     >
       <ul>
-        <Navlink>
-          <Link to="/about">ABOUT</Link>
-        </Navlink>
-        <Navlink>
-          <Link to="/">SONGS</Link>
-        </Navlink>
+        <ListItem>
+          <NavLink to="/about" activeStyle={active}>
+            ABOUT
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink to="/" activeStyle={active}>
+            SONGS
+          </NavLink>
+        </ListItem>
       </ul>
     </div>
   )
