@@ -1,16 +1,18 @@
 import React, { useState } from "react"
 import Tone from "tone"
+import { useDispatch, useSelector } from "react-redux"
 import { songs } from "../songs"
+import { play, stop } from "../state/createStore"
 import SongCard from "../components/songCard"
 
 const Sounds = () => {
+  const dispatch = useDispatch()
   let [songList, setSongList] = useState(songs)
-  let [isPlaying, setIsPlaying] = useState(false)
-  let [currentSong, setCurrentSong] = useState("")
+  let isPlaying = useSelector(state => state.isPlaying)
+  let currentSong = useSelector(state => state.currentSong)
 
   const stopSong = () => {
-    setIsPlaying(false)
-    setCurrentSong("")
+    dispatch(stop())
     Tone.Transport.stop()
     Tone.Transport.cancel()
     Tone.context.close()
@@ -19,12 +21,10 @@ const Sounds = () => {
   const playSong = async song => {
     if (isPlaying) {
       await stopSong()
-      setIsPlaying(true)
-      setCurrentSong(song.name)
+      dispatch(play(song.name))
       song.makeSong()
     } else {
-      setIsPlaying(true)
-      setCurrentSong(song.name)
+      dispatch(play(song.name))
       song.makeSong()
     }
   }
