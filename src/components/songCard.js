@@ -5,20 +5,30 @@ var morphing = keyframes`
     0% {
       border-radius: 50%;
     }
-    25% {
-      border-radius: 54% 60% 25% 80% / 40% 70% 23% 68%;
+    15% {
+      border-radius: 54% 60% 45% 80% / 40% 70% 23% 68%;
     }
-    50% {
-      border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    30% {
+      border-radius: 50% 16% 33% 67% / 55% 27% 73% 45%;
+    }
+    45% {
+      border-radius: 29% 45% 58% 42% / 63% 15% 62% 37%;
+    }
+    60% {
+      border-radius: 50% 50% 20% 67% / 55% 27% 30% 45%;
     }
     75% {
-      border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+      border-radius: 54% 60% 25% 80% / 40% 70% 23% 68%;
+    }
+    90% {
+      border-radius: 33% 50% 58% 42% / 63% 45% 32% 60%;
     }
   `
 
 const Playing = styled.div`
-  animation: ${morphing} 10s infinite;
+  animation: ${morphing} 20s infinite;
   border: 2px solid black;
+  background-color: pink;
   height: 300px;
   border-radius: 50%;
   display: flex;
