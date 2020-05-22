@@ -9,12 +9,19 @@ export const stop = () => ({
   type: "STOP_SONG",
 })
 
+export const getSongs = songs => ({
+  type: "GET_SONGS",
+  songs,
+})
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "PLAY_SONG":
       return { ...state, isPlaying: true, currentSong: action.songName }
     case "STOP_SONG":
       return { ...state, isPlaying: false, currentSong: "" }
+    case "GET_SONGS":
+      return { ...state, songList: action.songs }
     default:
       return state
   }

@@ -1,15 +1,19 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 import Tone from "tone"
 import { useDispatch, useSelector } from "react-redux"
 import { songs } from "../songs"
-import { play, stop } from "../state/createStore"
+import { play, stop, getSongs } from "../state/createStore"
 import SongCard from "../components/songCard"
 
 const Sounds = () => {
   const dispatch = useDispatch()
-  let [songList, setSongList] = useState(songs)
+  let songList = useSelector(state => state.songList)
   let isPlaying = useSelector(state => state.isPlaying)
   let currentSong = useSelector(state => state.currentSong)
+
+  useEffect(() => {
+    dispatch(getSongs(songs))
+  })
 
   const stopSong = () => {
     dispatch(stop())
