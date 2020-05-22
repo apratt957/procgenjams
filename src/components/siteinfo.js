@@ -23,16 +23,7 @@ const SiteInfo = () => {
     >
       <ul>
         <Navlink>
-          <Link
-            to="/about"
-            onClick={() => {
-              Tone.Transport.stop()
-              Tone.Transport.cancel()
-              Tone.context.close()
-            }}
-          >
-            ABOUT
-          </Link>
+          <Link to="/about">ABOUT</Link>
         </Navlink>
         <Navlink>
           <Link to="/">SONGS</Link>
