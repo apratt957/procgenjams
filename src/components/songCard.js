@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 
-const SongCard = ({ song, playSong, stopSong, currentSong }) => {
-  var morphing = keyframes`
+var morphing = keyframes`
     0% {
       border-radius: 50%;
     }
@@ -17,27 +16,28 @@ const SongCard = ({ song, playSong, stopSong, currentSong }) => {
     }
   `
 
-  const Playing = styled.div`
-    animation: ${morphing} 10s infinite;
-    border: 2px solid black;
-    height: 300px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  `
+const Playing = styled.div`
+  animation: ${morphing} 10s infinite;
+  border: 2px solid black;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
-  const Circle = styled.div`
-    border: 2px solid black;
-    height: 300px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  `
+const Circle = styled.div`
+  border: 2px solid black;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
+const SongCard = ({ song, playSong, stopSong, currentSong }) => {
   if (song.name === currentSong) {
     return (
       <Playing>

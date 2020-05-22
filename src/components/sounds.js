@@ -36,6 +36,7 @@ const Sounds = () => {
         gap: "1rem",
         gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
         margin: "15px 10px 15px 100px",
+        width: "90vw",
       }}
     >
       {songList.map(song => (
