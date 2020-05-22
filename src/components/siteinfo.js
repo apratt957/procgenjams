@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Tone from "tone"
 import styled from "styled-components"
 
 const Navlink = styled.div`
@@ -22,7 +23,16 @@ const SiteInfo = () => {
     >
       <ul>
         <Navlink>
-          <Link to="/about">ABOUT</Link>
+          <Link
+            to="/about"
+            onClick={() => {
+              Tone.Transport.stop()
+              Tone.Transport.cancel()
+              Tone.context.close()
+            }}
+          >
+            ABOUT
+          </Link>
         </Navlink>
         <Navlink>
           <Link to="/">SONGS</Link>
