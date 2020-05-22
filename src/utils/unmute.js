@@ -219,11 +219,6 @@ export function unmute(context) {
         isPageActive = true
         pageActivated()
       }
-    } else {
-      if (isPageActive) {
-        isPageActive = false
-        pageDeactivated()
-      }
     }
   }
   /**
