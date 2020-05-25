@@ -9,14 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.songGrid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
-  margin: 15px 10px 15px 100px;
-}
-
 .active {
   text-decoration: none;
   color: red;

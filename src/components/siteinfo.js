@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import reduxStore from "../state/createStore"
 
 const ListItem = styled.div`
   writing-mode: vertical-rl;
