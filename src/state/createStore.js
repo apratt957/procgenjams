@@ -35,3 +35,5 @@ const initialState = {
 
 const reduxStore = () => createStore(reducer, initialState)
 export default reduxStore
+
+//adding a comment to check git working properly
