@@ -100,7 +100,7 @@ const song1 = {
 }
 
 const song2 = {
-  name: "Literally one note lmao",
+  name: "Drone",
   makeSong: () => {
     Tone.context = new AudioContext()
     unmute(Tone.context)
@@ -180,17 +180,10 @@ const song2 = {
     }, "25m").start()
 
     new Tone.Loop(time => {
-      // Trigger D4 after 5 measures and hold for 1 full measure + two 1/4 notes
       rightSynth.triggerAttackRelease(makeRandomNote(notes), "1:2", "+5:0")
-      // Switch to E4 after one more measure
       rightSynth.setNote(makeRandomNote(notes), "+6:0")
-
-      // Trigger B3 after 11 measures + two 1/4 notes + two 1/16 notes. Hold for one measure
       rightSynth.triggerAttackRelease(makeRandomNote(notes), "1m", "+11:2:2")
-      // Switch to G3 after a 1/2 note more
       rightSynth.setNote(makeRandomNote(notes), "+12:0:2")
-
-      // Trigger G4 after 23 measures + two 1/4 notes. Hold for a half note.
       rightSynth.triggerAttackRelease(makeRandomNote(notes), "0:2", "+23:2")
     }, "26m").start()
     Tone.Transport.start()
